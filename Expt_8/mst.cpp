@@ -1,4 +1,5 @@
-// Minimum Spanning Tree using Prim's and Kruskal's algorithms
+// Amit Raj
+// 25/DA/012
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -6,7 +7,7 @@ struct Edge {
     int u, v, w;
 };
 
-// ---------- Disjoint Set Union (for Kruskal) ----------
+// Disjoint Set Union (for Kruskal) 
 class DSU {
     vector<int> parent, rnk;
 public:
@@ -22,7 +23,7 @@ public:
     }
 };
 
-// ---------- Kruskal's Algorithm: O(E log E) ----------
+// Kruskal's Algorithm: O(E log E)
 pair<int, vector<Edge>> kruskal(int n, vector<Edge> edges) {
     sort(edges.begin(), edges.end(),
          [](const Edge &a, const Edge &b) { return a.w < b.w; });
@@ -39,7 +40,7 @@ pair<int, vector<Edge>> kruskal(int n, vector<Edge> edges) {
     return {total, mst};
 }
 
-// ---------- Prim's Algorithm (min-heap): O(E log V) ----------
+// Prim's Algorithm (min-heap): O(E log V) 
 pair<int, vector<Edge>> prim(int n, const vector<vector<pair<int, int>>> &adj, int start = 0) {
     vector<bool> inMST(n, false);
     vector<Edge> mst;
